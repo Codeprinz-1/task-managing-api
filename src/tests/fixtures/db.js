@@ -21,6 +21,24 @@ const user3 = {
   password: "testpass3",
   tokens: [{ token: jwt.sign({ _id: user1Id }, process.env.JWT_SECRET) }],
 };
+
+const task1 = {
+  description: "initial task",
+  completed: true,
+  owner: user1._id,
+};
+
+const task2 = {
+  description: "second task",
+  completed: true,
+  owner: user3._id,
+};
+
+const task3 = {
+  description: "third task",
+  owner: user3._id,
+};
+
 const setUpDatabase = async () => {
   await User.deleteMany();
   await new User(user1).save();
