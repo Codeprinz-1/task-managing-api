@@ -47,3 +47,7 @@ test("Should get profule for user", async () => {
     .send()
     .expect(200);
 });
+
+test("Should not get profile of unauthenticated user", async () => {
+  await request(app).get("/users/me").send().expect(401);
+});
