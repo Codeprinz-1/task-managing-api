@@ -3,7 +3,7 @@ const app = require("../app");
 const User - require('../models/user')
 
 beforeEach(() => {
-
+  await User.deleteMany()
 })
 
 test("Should signup a new user", async () => {
