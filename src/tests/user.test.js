@@ -37,7 +37,7 @@ test("Should signup a new user", async () => {
       name: "testname2",
       email: "testemail2@gmail.com",
     },
-    token: user1.tokens[0].token,
+    token: user.tokens[0].token,
   });
 
   expect(user.password).not.toBe("testpass2");
