@@ -1,11 +1,17 @@
 const request = require("supertest");
+const jwt = require("jsonwebtoken");
+const mongoose = require("mongoose");
 const app = require("../app");
 const User = require("../models/user");
 
+const user1Id = new mongoose.Types.ObjectId();
+
 const user1 = {
+  _id: user1Id,
   name: "testname1",
   email: "testemail1@gmail.com",
   password: "testpass1",
+  token: [{ token: jwt.sign({ _id: user1Id }, process.env.JWT_SECRET) }],
 };
 
 beforeEach(async () => {
