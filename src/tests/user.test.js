@@ -95,3 +95,17 @@ test("Should upload avatar image", async () => {
   const user = await User.findById(user1._id);
   expect(user.avatar).toEqual(expect.any(Buffer));
 });
+
+test("Should update valid field", async () => {
+  await request(app)
+    .patch("/users/me")
+    .set("Authorization", `Bearer ${user1.tokens[0].token}`)
+    .send({
+      name: "changedtestname1",
+    })
+    .expect(200);
+
+  const user = User.findById(user1._id);
+
+  expect(user.name).not.toBe(user1.name);
+});
