@@ -54,7 +54,7 @@ test("Should not get profile of unauthenticated user", async () => {
 
 test("Should delete account for authenticated user", async () => {
   await request(app)
-    .delete("users/me")
+    .delete("/users/me")
     .set("Authorization", `Bearer ${user1.tokens[0].token}`)
     .send()
     .expect(200);
