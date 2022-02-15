@@ -39,3 +39,11 @@ test("Should login existing usesr", async () => {
     })
     .expect(200);
 });
+
+test("Should get profule for user", async () => {
+  await request(app)
+    .get("/users/me")
+    .set("Authorization", `Bearer ${user1.token[0].token}`)
+    .send()
+    .expect(200);
+});
