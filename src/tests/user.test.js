@@ -11,7 +11,7 @@ const user1 = {
   name: "testname1",
   email: "testemail1@gmail.com",
   password: "testpass1",
-  token: [{ token: jwt.sign({ _id: user1Id }, process.env.JWT_SECRET) }],
+  tokens: [{ token: jwt.sign({ _id: user1Id }, process.env.JWT_SECRET) }],
 };
 
 beforeEach(async () => {
@@ -43,7 +43,7 @@ test("Should login existing usesr", async () => {
 test("Should get profule for user", async () => {
   await request(app)
     .get("/users/me")
-    .set("Authorization", `Bearer ${user1.token[0].token}`)
+    .set("Authorization", `Bearer ${user1.tokens[0].token}`)
     .send()
     .expect(200);
 });
