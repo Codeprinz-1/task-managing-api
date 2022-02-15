@@ -6,8 +6,8 @@ test("Should signup a new user", async () => {
     .post("/users")
     .send({
       name: "andrew",
-      email: "andrew@mead.com",
-      password: "my favourite password",
+      email: "testemail@gmail.com",
+      password: "my favourite",
     })
     .expect(201);
 });
