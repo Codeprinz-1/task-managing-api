@@ -8,7 +8,7 @@ const user1 = {
   password: "test1",
 };
 
-beforeEach(() => {
+beforeEach(async () => {
   await User.deleteMany();
   await new User(user1).save();
 });
