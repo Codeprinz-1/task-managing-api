@@ -91,4 +91,7 @@ test("Should upload avatar image", async () => {
     .set("Authorization", `Bearer ${user1.tokens[0].token}`)
     .attach("avatar", `${__dirname}/fixtures/profile.png`)
     .expect(200);
+
+  const user = await User.findById(user1._id);
+  expect(user.avatar).toEqual(expect.any(Buffer));
 });
