@@ -84,3 +84,10 @@ test("Should delete account for authenticated user", async () => {
 test("Should not delete account for unauthenticated user", async () => {
   await request(app).delete("/users/me").send().expect(401);
 });
+
+test("Should upload avatar image", async () => {
+  await request(app)
+    .post("/users/me/avatar")
+    .set("Authorization", `Bearer ${user1.tokens[0].token}`)
+    .attach("avatar", "tests/fixtures/profile.png");
+});
