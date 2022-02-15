@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
+const Task = require("../../models/task");
 const User = require("../../models/user");
 
 const user1Id = new mongoose.Types.ObjectId();
@@ -41,8 +42,12 @@ const task3 = {
 
 const setUpDatabase = async () => {
   await User.deleteMany();
+  await Task.deleteMany();
   await new User(user1).save();
   await new User(user3).save();
+  await new Task(task1).save();
+  await new Task(task2).save();
+  await new Task(task3).save();
 };
 
 module.exports = {
