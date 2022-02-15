@@ -12,6 +12,3 @@ app.use(userRouter);
 app.use(taskRouter);
 
 module.exports = app;
-app.listen(port, () => {
-  console.log("Server is up on port " + port);
-});
