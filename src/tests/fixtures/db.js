@@ -16,3 +16,8 @@ const setUpDatabase = async () => {
   await User.deleteMany();
   await new User(user1).save();
 };
+
+module.exports = {
+  user1,
+  setUpDatabase,
+};
