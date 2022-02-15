@@ -109,3 +109,11 @@ test("Should update valid field", async () => {
 
   expect(user.name).not.toBe(user1.name);
 });
+
+test("Should not update invalid fields", async () => {
+  await request(app)
+    .patch("/users/me")
+    .set("Authorization", `Bearer ${user1.tokens[0].token}`)
+    .send({ location: "abuja" })
+    .expect(400);
+});
