@@ -5,7 +5,7 @@ const User = require("../models/user");
 const user1 = {
   name: "testname1",
   email: "testemail1@gmail.com",
-  password: "test1",
+  password: "testpass1",
 };
 
 beforeEach(async () => {
@@ -19,7 +19,7 @@ test("Should signup a new user", async () => {
     .send({
       name: "testname2",
       email: "testemail2@gmail.com",
-      password: "test2",
+      password: "testpass2",
     })
     .expect(201);
 });
