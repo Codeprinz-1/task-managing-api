@@ -89,5 +89,6 @@ test("Should upload avatar image", async () => {
   await request(app)
     .post("/users/me/avatar")
     .set("Authorization", `Bearer ${user1.tokens[0].token}`)
-    .attach("avatar", "tests/fixtures/profile.png");
+    .attach("avatar", `${__dirname}/fixtures/profile.png`)
+    .expect(200);
 });
