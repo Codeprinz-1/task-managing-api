@@ -32,10 +32,11 @@ const task1 = {
 const task2 = {
   description: "second task",
   completed: true,
-  owner: user3._id,
+  owner: user1._id,
 };
 
 const task3 = {
+  _id: new mongoose.Types.ObjectId(),
   description: "third task",
   owner: user3._id,
 };
@@ -53,4 +54,5 @@ const setUpDatabase = async () => {
 module.exports = {
   user1,
   setUpDatabase,
+  task3,
 };
